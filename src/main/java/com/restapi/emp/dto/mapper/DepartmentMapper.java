@@ -1,5 +1,8 @@
 package com.restapi.emp.dto.mapper;
 
+import com.restapi.emp.dto.DepartmentDto;
+import com.restapi.emp.entity.Department;
+
 public class DepartmentMapper {
 
     // convert department jpa entity into department dto
