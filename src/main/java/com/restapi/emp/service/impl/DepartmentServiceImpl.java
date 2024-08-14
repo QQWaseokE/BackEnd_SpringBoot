@@ -3,16 +3,13 @@ package com.restapi.emp.service.impl;
 import com.restapi.emp.dto.DepartmentDto;
 import com.restapi.emp.dto.mapper.DepartmentMapper;
 import com.restapi.emp.entity.Department;
-import com.restapi.emp.exception.ResourceNotFoundException;
 import com.restapi.emp.repository.DepartmentRepository;
 import com.restapi.emp.service.DepartmentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
@@ -42,7 +39,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         Department department = EmpDeptCommon.getDepartment(departmentId, departmentRepository);
         return DepartmentMapper.mapToDepartmentDto(department);
     }
-    
+
 // EmpDeptCommon 클래스의 getDepartment() 메서드로 대체됨
 //    private Department getDepartment(Long departmentId) {
 //        String errMsg = String.format("Department is not exists with a given id: %s", departmentId);
@@ -61,8 +58,8 @@ public class DepartmentServiceImpl implements DepartmentService {
                 .stream()
                 .map(DepartmentMapper::mapToDepartmentDto)
                 .toList(); //Stream<DepartmentDto> => List<DepartmentDto>
-                //.map((department) -> DepartmentMapper.mapToDepartmentDto(department))
-                //.collect(Collectors.toList());
+        //.map((department) -> DepartmentMapper.mapToDepartmentDto(department))
+        //.collect(Collectors.toList());
     }
 
     @Override
